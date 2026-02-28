@@ -1,9 +1,13 @@
 {
-  "release-type": "python",
-  "extra-files": [
-    {
-      "type": "generic",
-      "path": "README.md"
+  "packages": {
+    ".": {
+      "release-type": "python",
+      "extra-files": [
+        {
+          "type": "generic",
+          "path": "README.md"
+        }
+      ]
     }
-  ]
+  }
 }
