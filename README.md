@@ -9,6 +9,7 @@
 
 ## Install
 
+<!-- x-release-please-start-version -->
 Install with uv:
 
 ```sh
@@ -20,6 +21,7 @@ Or install with pip:
 ```sh
 pip install https://github.com/remarkablemark/python-package-github-release-test/releases/download/v0.2.1/python_package-0.2.1-py3-none-any.whl
 ```
+<!-- x-release-please-end -->
 
 ## Usage
 
