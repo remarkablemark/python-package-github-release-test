@@ -33,7 +33,7 @@ jobs:
         run: uv init
 
       - name: Install package
-        run: uv add $(gh release view --json assets -q '.assets[] | select(.name | endswith(".whl")) | .url')
+        run: uv add $(gh release view --repo ${{ github.repository }} --json assets -q '.assets[] | select(.name | endswith(".whl")) | .url')
         env:
           GH_TOKEN: ${{ github.token }}
 
