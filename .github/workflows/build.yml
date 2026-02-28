@@ -1,11 +1,11 @@
-name: test
+name: build
 on: push
 
 permissions:
   contents: read
 
 jobs:
-  test:
+  build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -15,10 +15,7 @@ jobs:
         uses: astral-sh/setup-uv@v7
 
       - name: Install dependencies
-        run: uv sync --extra test
+        run: uv sync
 
-      - name: Run tests with coverage
-        run: |
-          uv run coverage run -m pytest
-          uv run coverage report
-          uv run coverage xml
+      - name: Build package
+        run: uv build
