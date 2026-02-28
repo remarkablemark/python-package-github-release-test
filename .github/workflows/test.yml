@@ -5,7 +5,7 @@ permissions:
   contents: read
 
 jobs:
-  test:
+  unit:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -22,3 +22,25 @@ jobs:
           uv run coverage run -m pytest
           uv run coverage report
           uv run coverage xml
+
+  package:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install uv
+        uses: astral-sh/setup-uv@v7
+
+      - name: Create project
+        run: uv init
+
+      - name: Install package
+        run: uv add ${{ github.server_url }}/${{ github.repository }}/releases/download/latest/python-package.whl
+
+      - name: Update script
+        run: |
+          cat <<EOF > main.py
+          from python_package import hello
+          print(hello())
+          EOF
+
+      - name: Run script
+        run: uv run main.py
