@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.1](https://github.com/remarkablemark/python-package-github-release-test/compare/v0.2.0...v0.2.1) (2026-02-28)
+
+
+### Bug Fixes
+
+* **github:** don't rename wheel filename during release ([40ee952](https://github.com/remarkablemark/python-package-github-release-test/commit/40ee952f9680b7cecafe31b22bd68a9ecdb01209))
+
 ## [0.2.0](https://github.com/remarkablemark/python-package-github-release-test/compare/v0.1.0...v0.2.0) (2026-02-28)
 
 
