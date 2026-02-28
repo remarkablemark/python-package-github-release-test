@@ -1,0 +1,9 @@
+{
+  "release-type": "python",
+  "extra-files": [
+    {
+      "type": "generic",
+      "path": "README.md"
+    }
+  ]
+}
