@@ -1,4 +1,4 @@
-from python_package_template import hello
+from python_package import hello
 
 
 def test_hello() -> None:

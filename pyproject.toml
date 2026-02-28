@@ -1,10 +1,10 @@
 [project]
-name = "python-package-template"
+name = "python-package"
 version = "0.0.0"
 authors = [
     { name="Mark", email="mark@remarkablemark.org" },
 ]
-description = "Python Package Template"
+description = "Python Package GitHub Release test"
 readme = "README.md"
 requires-python = ">=3.10"
 classifiers = [
@@ -30,8 +30,8 @@ test = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/remarkablemark/python-package-template"
-Issues = "https://github.com/remarkablemark/python-package-template/issues"
+Homepage = "https://github.com/remarkablemark/python-package-github-release-test"
+Issues = "https://github.com/remarkablemark/python-package-github-release-test"
 
 [build-system]
 requires = ["hatchling"]

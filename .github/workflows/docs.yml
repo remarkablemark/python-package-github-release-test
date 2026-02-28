@@ -18,7 +18,7 @@ jobs:
         run: uv sync --extra docs
 
       - name: Build docs
-        run: uv run pdoc src/python_package_template/ -o docs
+        run: uv run pdoc src/python_package/ -o docs
 
       - name: Deploy
         if: github.ref_name == 'master'
