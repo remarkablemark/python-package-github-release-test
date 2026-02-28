@@ -33,7 +33,9 @@ jobs:
         run: uv init
 
       - name: Install package
-        run: uv add ${{ github.server_url }}/${{ github.repository }}/releases/download/latest/python-package.whl
+        run: |
+          URL=$(gh release view --json assets -q '.assets[] | select(.name | endswith(".whl")) | .url')
+          uv add $URL
 
       - name: Update script
         run: |
