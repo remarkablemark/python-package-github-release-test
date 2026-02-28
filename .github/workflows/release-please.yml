@@ -39,6 +39,10 @@ jobs:
         run: uv build
 
       - name: Upload to GitHub Release
-        run: gh release upload v${{ needs.release.outputs.version }} dist/* --clobber
+        run: >
+          gh release upload
+          v${{ needs.release.outputs.version }}
+          "$(find dist -type f -name '*.whl')#python-package.whl"
+          --clobber
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
