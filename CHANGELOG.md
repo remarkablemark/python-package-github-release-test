@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.2.2](https://github.com/remarkablemark/python-package-github-release-test/compare/v0.2.1...v0.2.2) (2026-02-28)
+
+
+### Documentation
+
+* **readme:** make sure version is replaced ([4c7d898](https://github.com/remarkablemark/python-package-github-release-test/commit/4c7d8983b054e01444ea24350fc1728be271a409))
+* **readme:** update install ([20a4505](https://github.com/remarkablemark/python-package-github-release-test/commit/20a4505e0b753dbc4d30ae0d7aec01a0ce2998da))
+
 ## [0.2.1](https://github.com/remarkablemark/python-package-github-release-test/compare/v0.2.0...v0.2.1) (2026-02-28)
 
 
