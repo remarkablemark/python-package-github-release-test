@@ -33,9 +33,9 @@ jobs:
         run: uv init
 
       - name: Install package
-        run: |
-          URL=$(gh release view --json assets -q '.assets[] | select(.name | endswith(".whl")) | .url')
-          uv add $URL
+        run: uv add $(gh release view --json assets -q '.assets[] | select(.name | endswith(".whl")) | .url')
+        env:
+          GH_TOKEN: ${{ github.token }}
 
       - name: Update script
         run: |
