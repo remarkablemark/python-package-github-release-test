@@ -40,7 +40,7 @@ jobs:
       - name: Get latest release
         id: release
         run: |
-          TAG=$(gh release view --json tagName -q .tagName)
+          TAG=$(gh release view --repo ${{ github.repository }} --json tagName -q .tagName)
           echo "tag=$TAG" >> $GITHUB_OUTPUT
 
       - name: Install external package
