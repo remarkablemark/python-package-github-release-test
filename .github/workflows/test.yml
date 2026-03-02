@@ -25,6 +25,11 @@ jobs:
 
   package:
     runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ github.token }}
+    strategy:
+      matrix:
+        install: [external, local]
     steps:
       - name: Install uv
         uses: astral-sh/setup-uv@v7
@@ -32,10 +37,23 @@ jobs:
       - name: Create project
         run: uv init
 
-      - name: Install package
-        run: uv add $(gh release view --repo ${{ github.repository }} --json assets -q '.assets[] | select(.name | endswith(".whl")) | .url')
-        env:
-          GH_TOKEN: ${{ github.token }}
+      - name: Get latest release
+        id: release
+        run: |
+          TAG=$(gh release view --json tagName -q .tagName)
+          echo "tag=$TAG" >> $GITHUB_OUTPUT
+
+      - name: Install external package
+        if: matrix.install == 'external'
+        run: |
+          URL=$(gh release view ${{ steps.release.outputs.tag }} --repo ${{ github.repository }} --json assets -q '.assets[] | select(.name | endswith(".whl")) | .url')
+          uv add $URL
+
+      - name: Install local package
+        if: matrix.install == 'local'
+        run: |
+          gh release download ${{ steps.release.outputs.tag }} -R ${{ github.repository }} -p '*.whl' -D ./vendor/ --clobber
+          uv add ./vendor/*.whl
 
       - name: Update script
         run: |
